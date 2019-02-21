@@ -1,5 +1,5 @@
 
-# Recommendation of Alternate Restaurants
+# Recommendation of Alternative Restaurants
 ## Introduction
 Nowadays it is very common for people to research for a restaurant online before a meal and/or make reservation.  What if the restaurant has no table when you visit or make reservation?  You start the search all over again.  The goal of this project is to provide an algorithm to recommend an alternate restaurants that are the "closest" to your first choice.
 ## Business Problem
