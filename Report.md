@@ -1,1 +1,12 @@
 
+# Recommendation of Alternate Restaurants
+## Introduction
+Nowadays it is very common for people to research for a restaurant online before a meal and/or make reservation.  What if the restaurant has no table when you visit or make reservation?  You start the search all over again.  The goal of this project is to provide an algorithm to recommend an alternate restaurants that are the "closest" to your first choice.
+## Business Problem
+The audience of this project can be any website or application that suggests restaurants.  (e.g. Opentable, Yelps etc)
+The following can be the use cases of the algorithm:
+* Booking is not available when the user trys to make a reservation online
+* No table is available when the user visits and the user wants to look for an alternative restaurant
+A naive approach is to just list all the restaurants nearby sorted by the distance.  However it can do better by recommending one that is the "closest" to the original one, in terms of location, type of cuisine and pricing etc.  The smarter the recommendations are the more pleasant the experience will be for the user of the website or application.
+## Data
+This project will be using data about venues from Foursquare.  Data will include features like location, category/categories of cuisine and pricing.  To limit the amount of API calls and data storage the scope of data will only include restaurants in Toronto area.
