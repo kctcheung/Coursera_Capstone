@@ -60,3 +60,198 @@ Sample data with the feature can look like:
       }
     ]
 ```
+This is to be combined with more details like:
+``` json
+    {
+        "id": "4bb6b9446edc76b0d771311c"
+        "name": "Wendy's"
+        "contact": {
+            "twitter": "wendyscanada"
+            "facebook": "132856246727566"
+            "facebookUsername": "WendysCanada"
+            "facebookName": "Wendy's"
+        }
+        "location": {
+            "crossStreet": "Morningside & Sheppard"
+            "lat": 43.80744841934756
+            "lng": -79.19905558052072
+            "labeledLatLngs": [
+                {
+                    "label": "display"
+                    "lat": 43.80744841934756
+                    "lng": -79.19905558052072
+                }
+            ]
+            "cc": "CA"
+            "city": "Toronto"
+            "state": "ON"
+            "country": "Canada"
+            "formattedAddress": [
+                "Toronto ON"
+            ]
+        }
+        "canonicalUrl": "https://foursquare.com/v/wendys/4bb6b9446edc76b0d771311c"
+        "categories": [
+            {
+                "id": "4bf58dd8d48988d16e941735"
+                "name": "Fast Food Restaurant"
+                "pluralName": "Fast Food Restaurants"
+                "shortName": "Fast Food"
+                "icon": {
+                    "prefix": "https://ss3.4sqi.net/img/categories_v2/food/fastfood_"
+                    "suffix": ".png"
+                }
+                "primary": true
+            }
+            {
+                "id": "4bf58dd8d48988d16c941735"
+                "name": "Burger Joint"
+                "pluralName": "Burger Joints"
+                "shortName": "Burgers"
+                "icon": {
+                    "prefix": "https://ss3.4sqi.net/img/categories_v2/food/burger_"
+                    "suffix": ".png"
+                }
+            }
+        ]
+        "verified": false
+        "stats": {
+            "tipCount": 0
+            "usersCount": 50
+            "checkinsCount": 80
+            "visitsCount": 83
+        }
+        "url": "http://www.wendys.ca"
+        "price": {
+            "tier": 1
+            "message": "Cheap"
+            "currency": "$"
+        }
+        "likes": {
+            "count": 1
+            "groups": [
+                {
+                    "type": "others"
+                    "count": 1
+                    "items": [
+                        "0": {
+                            "id": "11615115"
+                            "firstName": "Peter"
+                            "lastName": "P"
+                            "gender": "male"
+                            "photo": {
+                                "prefix": "https://fastly.4sqi.net/img/user/"
+                                "suffix": "/M3D3AS2IWMR2YPYI.jpg"
+                            }
+                        }
+                    ]
+                }
+            ]
+            "summary": "Peter P"
+        }
+        "like": false
+        "dislike": false
+        "ok": false
+        "rating": 5.9
+        "ratingColor": "FF9600"
+        "ratingSignals": 3
+        "allowMenuUrlEdit": true
+        "beenHere": {
+            "count": 0
+            "unconfirmedCount": 0
+            "marked": false
+            "lastCheckinExpiredAt": 0
+        }
+        "specials": {
+            "count": 0
+            "items": [
+            ]
+        }
+        "photos": {
+            "count": 0
+            "groups": [
+                {
+                    "type": "checkin"
+                    "name": "Friends' check-in photos"
+                    "count": 0
+                    "items": [
+                    ]
+                }
+            ]
+            "summary": "No photos"
+        }
+        "reasons": {
+            "count": 0
+            "items": [
+            ]
+        }
+        "hereNow": {
+            "count": 0
+            "summary": "Nobody here"
+            "groups": [
+            ]
+        }
+        "createdAt": 1270266180
+        "tips": {
+            "count": 0
+            "groups": [
+                {
+                    "type": "following"
+                    "name": "Tips from people you follow"
+                    "count": 0
+                    "items": [
+                    ]
+                }
+            ]
+        }
+        "shortUrl": "http://4sq.com/bIsz0D"
+        "timeZone": "America/Toronto"
+        "listed": {
+            "count": 0
+            "groups": [
+            ]
+        }
+        "pageUpdates": {
+            "count": 0
+            "items": [
+            ]
+        }
+        "inbox": {
+            "count": 0
+            "items": [
+            ]
+        }
+        "venueChains": [
+            {
+                "id": "556f46f6bd6a007c77390fa9"
+                "bestName": {
+                    "name": "Wendy's"
+                    "lang": "en"
+                }
+                "logo": {
+                    "prefix": "https://fastly.4sqi.net/img/general/"
+                    "suffix": "/212169387__T0QUvJoFuI9kYtwYB2X6ykcecr3d5prcZgZTi4C0OM.jpg"
+                }
+            }
+        ]
+        "attributes": {
+            "groups": [
+                {
+                    "type": "price"
+                    "name": "Price"
+                    "summary": "$"
+                    "count": 1
+                    "items": [
+                        "0": {
+                            "displayName": "Price"
+                            "displayValue": "$"
+                            "priceTier": 1
+                        }
+                    ]
+                }
+            ]
+        }
+    }
+
+}
+```
