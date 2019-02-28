@@ -206,3 +206,63 @@ Sample data with the feature can look like the following.  More relevant feature
 
 }
 ```
+## Methodology
+The scope of this project only include the Toronto area.  The same methodology will apply to any location.
+
+The first step is to gather a list of restaurant from the area.  All venues are obtained by the API `https://api.foursquare.com/v2/venues/explore`
+
+The id, name, categories, latitude and longitude are extracted to obtain a dataframe like the following:
+<table border=\"1\" class=\"dataframe\">
+  <thead>
+    <tr style=\"text-align: right;\">
+      <th></th>
+      <th>id</th>
+      <th>name</th>
+      <th>categories</th>
+      <th>lat</th>
+      <th>lng</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>5227bb01498e17bf485e6202</td>
+      <td>Downtown Toronto</td>
+      <td>Neighborhood</td>
+      <td>43.653232</td>
+      <td>-79.385296</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>4ad4c05ef964a520a6f620e3</td>
+      <td>Nathan Phillips Square</td>
+      <td>Plaza</td>
+      <td>43.652270</td>
+      <td>-79.383516</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>4ad4c05ef964a520daf620e3</td>
+      <td>Art Gallery of Ontario</td>
+      <td>Art Gallery</td>
+      <td>43.654003</td>
+      <td>-79.392922</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>4ad4c062f964a520e5f720e3</td>
+      <td>Four Seasons Centre for the Performing Arts</td>
+      <td>Concert Hall</td>
+      <td>43.650609</td>
+      <td>-79.386280</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>4adf3c01f964a5208f7821e3</td>
+      <td>Aboveground Art Supplies</td>
+      <td>Arts &amp; Crafts Store</td>
+      <td>43.652646</td>
+      <td>-79.390925</td>
+    </tr>
+  </tbody>
+</table>
