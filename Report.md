@@ -1669,7 +1669,7 @@ To recommend an alternative restaurant, we first obtain the cluster number of th
 
 We would use geopy.distance from geodesic to calculate hte distance between 2 points (with latitude and longitude).
 
-Using the restaurant Canoe as an example: (First row is the original restaurant hence a distance of 0)
+Using the restaurant Canoe as an example showing the top 5: (First row is the original restaurant hence a distance of 0)
 <table border=\"1\" class=\"dataframe\">
   <thead>
     <tr style=\"text-align: right;\">
