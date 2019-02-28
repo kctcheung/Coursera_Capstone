@@ -209,7 +209,10 @@ Sample data with the feature can look like the following.  More relevant feature
 ## Methodology
 The scope of this project only include the Toronto area.  The same methodology will apply to any location.
 
-The first step is to gather a list of restaurant from the area.  All venues are obtained by the API `https://api.foursquare.com/v2/venues/explore`
+The first step is to gather a list of restaurant from the area.  All venues are obtained by the API 
+```
+https://api.foursquare.com/v2/venues/explore
+```
 
 The id, name, categories, latitude and longitude are extracted to obtain a dataframe like the following:
 <table border=\"1\" class=\"dataframe\">
@@ -579,7 +582,10 @@ Out of the 100 venues we obtained 34 restaurants:
   </tbody>
 </table>
 
-Next we fill in more detailed information about each restaurant with the API `https://api.foursquare.com/v2/venues/{venue_id}`
+Next we fill in more detailed information about each restaurant with the API 
+```
+https://api.foursquare.com/v2/venues/{venue_id}
+```
 
 We extract the price tier and rating of each restaurant.  We would also like to obtain a measure of how busy a place is.   Unfortunately the free account does not include the visits count.  As an alternative we used the tipCount property as it should be positively correlated to the visits count.
 
@@ -1011,5 +1017,162 @@ Our data becomes:
   </tbody>
 </table>
 
-** Note ** Since the free account can only make 50 of that API calls the data is stored in a csv file.
-Since a free account can only make 50 of those call per day.  The resulted dataf
+**Note** Since the free account can only make 50 of that API calls the data is stored in a csv file.
+Since a free account can only make 50 of those call per day.
+
+Before we can do clustering we need to one-hot encode the categorical features (category) and normalize the numeric ones (tip count, price tier and rating)
+
+Pandas get_dummies was used to do the one-hot encoding and sklearn.preprocessing StandardScaler was used to normalize the numeric features.
+
+The first 5 rows of the one-hot encoded data looked like:
+<table border=\"1\" class=\"dataframe\">
+  <thead>
+    <tr style=\"text-align: right;\">
+      <th></th>
+      <th>id</th>
+      <th>name</th>
+      <th>categories</th>
+      <th>lat</th>
+      <th>lng</th>
+      <th>tipCount</th>
+      <th>priceTier</th>
+      <th>rating</th>
+      <th>American Restaurant</th>
+      <th>BBQ Joint</th>
+      <th>...</th>
+      <th>Middle Eastern Restaurant</th>
+      <th>Restaurant</th>
+      <th>Salad Place</th>
+      <th>Sandwich Place</th>
+      <th>Seafood Restaurant</th>
+      <th>Spanish Restaurant</th>
+      <th>Steakhouse</th>
+      <th>Sushi Restaurant</th>
+      <th>Thai Restaurant</th>
+      <th>Vegetarian / Vegan Restaurant</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>509bb871e4b09c7ac93f6642</td>
+      <td>JaBistro</td>
+      <td>Sushi Restaurant</td>
+      <td>43.649687</td>
+      <td>-79.388090</td>
+      <td>71.0</td>
+      <td>3.0</td>
+      <td>8.8</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>4aeb711ef964a52017c221e3</td>
+      <td>Vegetarian Haven</td>
+      <td>Vegetarian / Vegan Restaurant</td>
+      <td>43.656016</td>
+      <td>-79.392758</td>
+      <td>31.0</td>
+      <td>2.0</td>
+      <td>8.8</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>537773d1498e74a75bb75c1e</td>
+      <td>Eggspectation Bell Trinity Square</td>
+      <td>Breakfast Spot</td>
+      <td>43.653144</td>
+      <td>-79.381980</td>
+      <td>55.0</td>
+      <td>1.0</td>
+      <td>8.7</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>529612de11d2ab526191ccc9</td>
+      <td>Pai</td>
+      <td>Thai Restaurant</td>
+      <td>43.647923</td>
+      <td>-79.388579</td>
+      <td>192.0</td>
+      <td>2.0</td>
+      <td>9.4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>1</td>
+      <td>0</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>5321f4d9e4b07946702e6e08</td>
+      <td>Byblos Toronto</td>
+      <td>Mediterranean Restaurant</td>
+      <td>43.647615</td>
+      <td>-79.388381</td>
+      <td>76.0</td>
+      <td>2.0</td>
+      <td>9.4</td>
+      <td>0</td>
+      <td>0</td>
+      <td>...</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+      <td>0</td>
+    </tr>
+  </tbody>
+</table>
+
