@@ -1020,6 +1020,8 @@ Our data becomes:
 **Note** Since the free account can only make 50 of that API calls the data is stored in a csv file.
 Since a free account can only make 50 of those call per day.
 
+To recommend alternative restaurants we can return the ones in the same category, or the closest.  However we can do better with properties like price point or how busy the place is.  The "closer" the alternative restaurant is to the original one the higher the chance the user will prefer.  With more and more properties thrown into the equation we need to rely on machine learing to do the math.  Hence clustering to find a list of "similar" ones.
+
 Before we can do clustering we need to one-hot encode the categorical features (category) and normalize the numeric ones (tip count, price tier and rating)
 
 Pandas get_dummies was used to do the one-hot encoding and sklearn.preprocessing StandardScaler was used to normalize the numeric features.
@@ -1188,6 +1190,8 @@ The plot of k and SSE was
 ![k against SSE](https://github.com/kctcheung/Coursera_Capstone/blob/master/elbow.png)
 
 There is a slight elbow bend at k=3 and given the small size of the data set 3 seem like a reasonable value.
+
+## Results
 
 Here are the clusters of the restaurants:
 #### Cluster 1 (Mainstream restaurants) 
