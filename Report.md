@@ -1176,3 +1176,11 @@ The first 5 rows of the one-hot encoded data looked like:
   </tbody>
 </table>
 
+The clustering algorithm used will be K-Means because:
+- It is Easy to implement
+- With a large number of variables, K-Means may be computationally faster than hierarchical clustering (if K is small).
+- K-Means may produce higher clusters than hierarchical clustering
+
+K-Means requires the number of clusters predefined.  Elbow method gives us an idea on what a good 𝑘 number of clusters would be based on the sum of squared distance (SSE) between data points and their assigned clusters' centroids. We pick 𝑘 at the spot where SSE starts to flatten out and forming an elbow. We'll use the geyser dataset and evaluate SSE for different values of 𝑘 and see where the curve might form an elbow and flatten out. 
+
+The plot of k and SSE was
