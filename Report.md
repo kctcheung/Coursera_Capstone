@@ -1184,3 +1184,590 @@ The clustering algorithm used will be K-Means because:
 K-Means requires the number of clusters predefined.  Elbow method gives us an idea on what a good 𝑘 number of clusters would be based on the sum of squared distance (SSE) between data points and their assigned clusters' centroids. We pick 𝑘 at the spot where SSE starts to flatten out and forming an elbow. We'll use the geyser dataset and evaluate SSE for different values of 𝑘 and see where the curve might form an elbow and flatten out. 
 
 The plot of k and SSE was
+
+![k against SSE](https://github.com/kctcheung/Coursera_Capstone/blob/master/elbow.png)
+
+There is a slight elbow bend at k=3 and given the small size of the data set 3 seem like a reasonable value.
+
+Here are the clusters of the restaurants:
+#### Cluster 1 (Mainstream restaurants) 
+<table border=\"1\" class=\"dataframe\">
+  <thead>
+    <tr style=\"text-align: right;\">
+      <th></th>
+      <th>Cluster Labels</th>
+      <th>id</th>
+      <th>name</th>
+      <th>categories</th>
+      <th>lat</th>
+      <th>lng</th>
+      <th>tipCount</th>
+      <th>priceTier</th>
+      <th>rating</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>0</td>
+      <td>509bb871e4b09c7ac93f6642</td>
+      <td>JaBistro</td>
+      <td>Sushi Restaurant</td>
+      <td>43.649687</td>
+      <td>-79.388090</td>
+      <td>71.0</td>
+      <td>3.0</td>
+      <td>8.8</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>0</td>
+      <td>4aeb711ef964a52017c221e3</td>
+      <td>Vegetarian Haven</td>
+      <td>Vegetarian / Vegan Restaurant</td>
+      <td>43.656016</td>
+      <td>-79.392758</td>
+      <td>31.0</td>
+      <td>2.0</td>
+      <td>8.8</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>0</td>
+      <td>537773d1498e74a75bb75c1e</td>
+      <td>Eggspectation Bell Trinity Square</td>
+      <td>Breakfast Spot</td>
+      <td>43.653144</td>
+      <td>-79.381980</td>
+      <td>55.0</td>
+      <td>1.0</td>
+      <td>8.7</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>0</td>
+      <td>529612de11d2ab526191ccc9</td>
+      <td>Pai</td>
+      <td>Thai Restaurant</td>
+      <td>43.647923</td>
+      <td>-79.388579</td>
+      <td>192.0</td>
+      <td>2.0</td>
+      <td>9.4</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>0</td>
+      <td>5321f4d9e4b07946702e6e08</td>
+      <td>Byblos Toronto</td>
+      <td>Mediterranean Restaurant</td>
+      <td>43.647615</td>
+      <td>-79.388381</td>
+      <td>76.0</td>
+      <td>2.0</td>
+      <td>9.4</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>0</td>
+      <td>506db1a9e4b0a3f3b31412f0</td>
+      <td>Richmond Station</td>
+      <td>American Restaurant</td>
+      <td>43.651569</td>
+      <td>-79.379266</td>
+      <td>110.0</td>
+      <td>3.0</td>
+      <td>9.2</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>0</td>
+      <td>52ec621e498ec68fa15ee922</td>
+      <td>Copacabana Grilled Brazilian</td>
+      <td>Brazilian Restaurant</td>
+      <td>43.648333</td>
+      <td>-79.388151</td>
+      <td>47.0</td>
+      <td>3.0</td>
+      <td>8.7</td>
+    </tr>
+    <tr>
+      <th>8</th>
+      <td>0</td>
+      <td>514627d1e4b0dba1b85e9ba8</td>
+      <td>Dineen Coffee</td>
+      <td>Caf\u00e9</td>
+      <td>43.650497</td>
+      <td>-79.378765</td>
+      <td>142.0</td>
+      <td>2.0</td>
+      <td>9.0</td>
+    </tr>
+    <tr>
+      <th>9</th>
+      <td>0</td>
+      <td>4ad4c05df964a52059f620e3</td>
+      <td>Canoe</td>
+      <td>Restaurant</td>
+      <td>43.647452</td>
+      <td>-79.381320</td>
+      <td>74.0</td>
+      <td>3.0</td>
+      <td>9.1</td>
+    </tr>
+    <tr>
+      <th>10</th>
+      <td>0</td>
+      <td>55a9c018498e8b05f7f870f1</td>
+      <td>Alo</td>
+      <td>French Restaurant</td>
+      <td>43.648574</td>
+      <td>-79.396243</td>
+      <td>19.0</td>
+      <td>3.0</td>
+      <td>9.2</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>0</td>
+      <td>56d4d1b3cd1035fe77e1492c</td>
+      <td>Page One Cafe</td>
+      <td>Caf\u00e9</td>
+      <td>43.657772</td>
+      <td>-79.376073</td>
+      <td>18.0</td>
+      <td>1.0</td>
+      <td>9.1</td>
+    </tr>
+    <tr>
+      <th>13</th>
+      <td>0</td>
+      <td>4b2bd898f964a52042bc24e3</td>
+      <td>Kinka Izakaya Original</td>
+      <td>Japanese Restaurant</td>
+      <td>43.660596</td>
+      <td>-79.378891</td>
+      <td>223.0</td>
+      <td>2.0</td>
+      <td>9.1</td>
+    </tr>
+    <tr>
+      <th>14</th>
+      <td>0</td>
+      <td>52138db911d22803b334c641</td>
+      <td>Mos Mos Coffee</td>
+      <td>Caf\u00e9</td>
+      <td>43.648159</td>
+      <td>-79.378745</td>
+      <td>11.0</td>
+      <td>1.0</td>
+      <td>8.8</td>
+    </tr>
+    <tr>
+      <th>16</th>
+      <td>0</td>
+      <td>4ad4c05cf964a5200ff620e3</td>
+      <td>Fresh On Spadina</td>
+      <td>Vegetarian / Vegan Restaurant</td>
+      <td>43.648048</td>
+      <td>-79.396008</td>
+      <td>128.0</td>
+      <td>2.0</td>
+      <td>8.8</td>
+    </tr>
+    <tr>
+      <th>17</th>
+      <td>0</td>
+      <td>4af618daf964a520220122e3</td>
+      <td>GEORGE Restaurant</td>
+      <td>Restaurant</td>
+      <td>43.653346</td>
+      <td>-79.374445</td>
+      <td>24.0</td>
+      <td>4.0</td>
+      <td>8.9</td>
+    </tr>
+    <tr>
+      <th>18</th>
+      <td>0</td>
+      <td>4d5effa95b276dcbc3b201c6</td>
+      <td>TOCA</td>
+      <td>Italian Restaurant</td>
+      <td>43.645431</td>
+      <td>-79.387059</td>
+      <td>10.0</td>
+      <td>4.0</td>
+      <td>8.7</td>
+    </tr>
+    <tr>
+      <th>19</th>
+      <td>0</td>
+      <td>4a8d5b48f964a520840f20e3</td>
+      <td>The Moonbean Cafe</td>
+      <td>Caf\u00e9</td>
+      <td>43.654147</td>
+      <td>-79.400182</td>
+      <td>62.0</td>
+      <td>1.0</td>
+      <td>8.9</td>
+    </tr>
+    <tr>
+      <th>20</th>
+      <td>0</td>
+      <td>4b49183ff964a520a46526e3</td>
+      <td>Terroni</td>
+      <td>Italian Restaurant</td>
+      <td>43.650927</td>
+      <td>-79.375602</td>
+      <td>92.0</td>
+      <td>3.0</td>
+      <td>8.8</td>
+    </tr>
+    <tr>
+      <th>21</th>
+      <td>0</td>
+      <td>574ad72238fa943556d93b8e</td>
+      <td>Gyu-Kaku Japanese BBQ</td>
+      <td>Japanese Restaurant</td>
+      <td>43.651422</td>
+      <td>-79.375047</td>
+      <td>11.0</td>
+      <td>2.0</td>
+      <td>8.7</td>
+    </tr>
+    <tr>
+      <th>22</th>
+      <td>0</td>
+      <td>51438b33e4b0a40e33fe5e77</td>
+      <td>Jimmy's Coffee</td>
+      <td>Caf\u00e9</td>
+      <td>43.654493</td>
+      <td>-79.401311</td>
+      <td>54.0</td>
+      <td>2.0</td>
+      <td>8.8</td>
+    </tr>
+    <tr>
+      <th>23</th>
+      <td>0</td>
+      <td>51a261ca498ea3d3eaf40876</td>
+      <td>FIKA Cafe</td>
+      <td>Caf\u00e9</td>
+      <td>43.653560</td>
+      <td>-79.400402</td>
+      <td>47.0</td>
+      <td>1.0</td>
+      <td>8.7</td>
+    </tr>
+    <tr>
+      <th>24</th>
+      <td>0</td>
+      <td>4af0c5c1f964a5200fdf21e3</td>
+      <td>Rodney's Oyster House</td>
+      <td>Seafood Restaurant</td>
+      <td>43.644975</td>
+      <td>-79.396587</td>
+      <td>80.0</td>
+      <td>3.0</td>
+      <td>9.1</td>
+    </tr>
+    <tr>
+      <th>25</th>
+      <td>0</td>
+      <td>4fa027ede4b0e4be23b3374e</td>
+      <td>Patria</td>
+      <td>Spanish Restaurant</td>
+      <td>43.645384</td>
+      <td>-79.396478</td>
+      <td>63.0</td>
+      <td>3.0</td>
+      <td>8.9</td>
+    </tr>
+    <tr>
+      <th>26</th>
+      <td>0</td>
+      <td>4b72f550f964a5202e922de3</td>
+      <td>Mystic Muffin</td>
+      <td>Middle Eastern Restaurant</td>
+      <td>43.652484</td>
+      <td>-79.372655</td>
+      <td>25.0</td>
+      <td>1.0</td>
+      <td>8.8</td>
+    </tr>
+    <tr>
+      <th>27</th>
+      <td>0</td>
+      <td>506880f3e8893b5a347c4043</td>
+      <td>Triple A Bar (AAA)</td>
+      <td>BBQ Joint</td>
+      <td>43.651658</td>
+      <td>-79.372720</td>
+      <td>59.0</td>
+      <td>2.0</td>
+      <td>8.8</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>0</td>
+      <td>50b7c53616485cd9efad60d5</td>
+      <td>Sukhothai</td>
+      <td>Thai Restaurant</td>
+      <td>43.648487</td>
+      <td>-79.374547</td>
+      <td>85.0</td>
+      <td>2.0</td>
+      <td>8.7</td>
+    </tr>
+    <tr>
+      <th>30</th>
+      <td>0</td>
+      <td>4b22f410f964a520005124e3</td>
+      <td>Jacobs &amp; Co.</td>
+      <td>Steakhouse</td>
+      <td>43.645339</td>
+      <td>-79.398020</td>
+      <td>69.0</td>
+      <td>4.0</td>
+      <td>8.9</td>
+    </tr>
+    <tr>
+      <th>31</th>
+      <td>0</td>
+      <td>4b2d2ab2f964a52007d024e3</td>
+      <td>Hibiscus</td>
+      <td>Vegetarian / Vegan Restaurant</td>
+      <td>43.655454</td>
+      <td>-79.402439</td>
+      <td>41.0</td>
+      <td>2.0</td>
+      <td>8.8</td>
+    </tr>
+    <tr>
+      <th>32</th>
+      <td>0</td>
+      <td>5346c98a498ed612110d0f60</td>
+      <td>iQ Food Co</td>
+      <td>Salad Place</td>
+      <td>43.642851</td>
+      <td>-79.382081</td>
+      <td>15.0</td>
+      <td>1.0</td>
+      <td>8.9</td>
+    </tr>
+  </tbody>
+</table>
+
+#### Cluster 2 (Cheap sandwich places)
+<table border=\"1\" class=\"dataframe\">
+  <thead>
+    <tr style=\"text-align: right;\">
+      <th></th>
+      <th>Cluster Labels</th>
+      <th>id</th>
+      <th>name</th>
+      <th>categories</th>
+      <th>lat</th>
+      <th>lng</th>
+      <th>tipCount</th>
+      <th>priceTier</th>
+      <th>rating</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>6</th>
+      <td>1</td>
+      <td>51755dc7498ece19b7261641</td>
+      <td>Banh Mi Boys</td>
+      <td>Sandwich Place</td>
+      <td>43.659188</td>
+      <td>-79.382131</td>
+      <td>88.0</td>
+      <td>1.0</td>
+      <td>9.2</td>
+    </tr>
+    <tr>
+      <th>11</th>
+      <td>1</td>
+      <td>4edeae9d61af80fe89aa3f54</td>
+      <td>Banh Mi Boys</td>
+      <td>Sandwich Place</td>
+      <td>43.648650</td>
+      <td>-79.396859</td>
+      <td>185.0</td>
+      <td>1.0</td>
+      <td>9.2</td>
+    </tr>
+    <tr>
+      <th>29</th>
+      <td>1</td>
+      <td>56437cac498e5a88165d13ce</td>
+      <td>Porchetta &amp; Co</td>
+      <td>Sandwich Place</td>
+      <td>43.644664</td>
+      <td>-79.398813</td>
+      <td>27.0</td>
+      <td>1.0</td>
+      <td>9.4</td>
+    </tr>
+  </tbody>
+</table>
+
+#### Cluster 3 (Mexican Restaurants)
+<table border=\"1\" class=\"dataframe\">
+  <thead>
+    <tr style=\"text-align: right;\">
+      <th></th>
+      <th>Cluster Labels</th>
+      <th>id</th>
+      <th>name</th>
+      <th>categories</th>
+      <th>lat</th>
+      <th>lng</th>
+      <th>tipCount</th>
+      <th>priceTier</th>
+      <th>rating</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>15</th>
+      <td>2</td>
+      <td>50427a03e4b08d9f5931f593</td>
+      <td>Seven Lives - Tacos y Mariscos</td>
+      <td>Mexican Restaurant</td>
+      <td>43.654418</td>
+      <td>-79.400545</td>
+      <td>93.0</td>
+      <td>1.0</td>
+      <td>9.2</td>
+    </tr>
+    <tr>
+      <th>33</th>
+      <td>2</td>
+      <td>544fc36c498ea63958331891</td>
+      <td>Wilbur Mexicana</td>
+      <td>Mexican Restaurant</td>
+      <td>43.644810</td>
+      <td>-79.398644</td>
+      <td>71.0</td>
+      <td>1.0</td>
+      <td>9.1</td>
+    </tr>
+  </tbody>
+</table>
+
+Here is a map of the clustered restaurants
+![Clustered Restaurants](https://github.com/kctcheung/Coursera_Capstone/blob/master/clustered%20restaurants.jpg)
+
+To recommend an alternative restaurant, we first obtain the cluster number of the restaurant and present the rest of the clusters sorted in a certain way.  E.g. A common logical way is to sort by the distance from the original restaurant.
+
+We would use geopy.distance from geodesic to calculate hte distance between 2 points (with latitude and longitude).
+
+Using the restaurant Canoe as an example: (First row is the original restaurant hence a distance of 0)
+<table border=\"1\" class=\"dataframe\">
+  <thead>
+    <tr style=\"text-align: right;\">
+      <th></th>
+      <th>index</th>
+      <th>Cluster Labels</th>
+      <th>id</th>
+      <th>name</th>
+      <th>categories</th>
+      <th>lat</th>
+      <th>lng</th>
+      <th>tipCount</th>
+      <th>priceTier</th>
+      <th>rating</th>
+      <th>distance</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>8</th>
+      <td>9</td>
+      <td>0</td>
+      <td>4ad4c05df964a52059f620e3</td>
+      <td>Canoe</td>
+      <td>Restaurant</td>
+      <td>43.647452</td>
+      <td>-79.381320</td>
+      <td>74.0</td>
+      <td>3.0</td>
+      <td>9.1</td>
+      <td>0.000000</td>
+    </tr>
+    <tr>
+      <th>12</th>
+      <td>14</td>
+      <td>0</td>
+      <td>52138db911d22803b334c641</td>
+      <td>Mos Mos Coffee</td>
+      <td>Caf\u00e9</td>
+      <td>43.648159</td>
+      <td>-79.378745</td>
+      <td>11.0</td>
+      <td>1.0</td>
+      <td>8.8</td>
+      <td>0.222147</td>
+    </tr>
+    <tr>
+      <th>7</th>
+      <td>8</td>
+      <td>0</td>
+      <td>514627d1e4b0dba1b85e9ba8</td>
+      <td>Dineen Coffee</td>
+      <td>Caf\u00e9</td>
+      <td>43.650497</td>
+      <td>-79.378765</td>
+      <td>142.0</td>
+      <td>2.0</td>
+      <td>9.0</td>
+      <td>0.396161</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>5</td>
+      <td>0</td>
+      <td>506db1a9e4b0a3f3b31412f0</td>
+      <td>Richmond Station</td>
+      <td>American Restaurant</td>
+      <td>43.651569</td>
+      <td>-79.379266</td>
+      <td>110.0</td>
+      <td>3.0</td>
+      <td>9.2</td>
+      <td>0.486478</td>
+    </tr>
+    <tr>
+      <th>15</th>
+      <td>18</td>
+      <td>0</td>
+      <td>4d5effa95b276dcbc3b201c6</td>
+      <td>TOCA</td>
+      <td>Italian Restaurant</td>
+      <td>43.645431</td>
+      <td>-79.387059</td>
+      <td>10.0</td>
+      <td>4.0</td>
+      <td>8.7</td>
+      <td>0.514565</td>
+    </tr>
+    <tr>
+      <th>28</th>
+      <td>32</td>
+      <td>0</td>
+      <td>5346c98a498ed612110d0f60</td>
+      <td>iQ Food Co</td>
+      <td>Salad Place</td>
+      <td>43.642851</td>
+      <td>-79.382081</td>
+      <td>15.0</td>
+      <td>1.0</td>
+      <td>8.9</td>
+      <td>0.514877</td>
+    </tr>
+</table>
+
+We can also sort by distance from your current geo location or rating etc.
