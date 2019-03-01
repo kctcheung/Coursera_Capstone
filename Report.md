@@ -1784,7 +1784,7 @@ Some ideas of collecting more features include:
 - Use image recognization services to see what kinds of dishes people take photos of
 - Use natural language processing to see what dishes the restaurants offer in the menu posted
 
-The data set size is also smaller due to the limitation of the FourSquare free account.  It can be soloved by using the paid account.  The process would be exactly the same.
+The data set size is also smaller due to the limitation of the FourSquare free account.  It can be solved by using the paid account.  The process would be exactly the same.
 
 ## Conclusion
 We can see that machine learning can help with finding things that are "similar" to each other.  It can help to make smarter recommendations that human can since we can base the recommendations on a large amount of data and features.  We have demonstrated an algoritm that can help map or restaurant booking applications to provide strategically calculated recommendations of alternative restaurants.
